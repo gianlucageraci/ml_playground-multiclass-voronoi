@@ -3,9 +3,8 @@
 This project demonstrates and visualizes how the final linear layer of a simple neural network partitions the input space for multiclass classification. The network is trained on a toy dataset containing up to 8 classes. The embedding space is 2-dimensional to enable easy visualization of the decision boundaries, weight vectors, and Voronoi regions throughout training.  
 Below is an animation showing how the weight vectors of the final layer matrix and the corresponding Voronoi regions evolve during training (for 5 classes):
 
-<p align = "center">
-<img src="gifs/voronoi_evolution_5_classes.gif" alt="Voronoi Evolution" width="750"/>
-</p>
+  ![Voronoi Evolution](gifs/voronoi_evolution_5_classes.gif)
+
 
 ## Mathematical Background
 
@@ -21,9 +20,9 @@ Mathematically, the final layer computes for each class $k$:
 $$s_k(\mathbf{x}) = \mathbf{w}_k^\top \mathbf{x} + b_k\$$
 
 where:  
--$\mathbf{w}_k$ is the weight vector for class $k$ (k-th column of final weight matrix)  
--$b_k$ is the bias for class $k$  
--$\mathbf{x}$ is the input vector
+- $\mathbf{w}_k$ is the weight vector for class $k$ (k-th column of final weight matrix)  
+- $b_k$ is the bias for class $k$  
+- $\mathbf{x}$ is the input vector
 
 The predicted class is:
 $$\hat{y} = \arg\max_k s_k(\mathbf{x})$$
@@ -35,7 +34,7 @@ Geometrically, the arrangement and orientation of the weight vectors determine w
 
 ### Decision Boundaries
 
-The decision boundary between class$i$and class$j$is defined by the set of points where their scores are equal:
+The decision boundary between class $i$ and class $j$ is defined by the set of points where their scores are equal:
 
 $$
 s_i(\mathbf{x}) = s_j(\mathbf{x}) \implies (\mathbf{w}_i - \mathbf{w}_j)^\top \mathbf{x} + (b_i - b_j) = 0
