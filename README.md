@@ -1,7 +1,6 @@
 # Multiclass Voronoi Partition Visualization
-
-This project demonstrates and visualizes how the final linear layer of a simple neural network partitions the input space for multiclass classification. The network is trained on a toy dataset containing up to 8 classes. The embedding space is 2-dimensional to enable easy visualization of the decision boundaries, weight vectors, and Voronoi regions throughout training.  
-Below is an animation showing how the weight vectors of the final layer matrix and the corresponding Voronoi regions evolve during training (for 5 classes):
+This project explores and visualizes how the final linear layer of a simple neural network divides the input space in a multiclass classification setting. The network is trained on a toy dataset with up to 8 classes, using a straightforward memorization task chosen specifically to illustrate the partitioning process. By restricting the embedding space to two dimensions, the evolution of decision boundaries, weight vectors, and Voronoi regions can be easily visualized throughout training.  
+The animation below shows how the weight vectors of the final layer and the corresponding Voronoi regions change during training (example shown for 5 classes):
 
   ![Voronoi Evolution](gifs/voronoi_evolution_5_classes.gif)
 
