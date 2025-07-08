@@ -16,32 +16,32 @@ The network consists of:
 - A linear layer mapping to `n_classes` outputs
 - A softmax activation for classification
 
-Mathematically, the final layer computes for each class $ k $:
+Mathematically, the final layer computes for each class $k$:
 
-$$ s_k(\mathbf{x}) = \mathbf{w}_k^\top \mathbf{x} + b_k\ $$
+$$s_k(\mathbf{x}) = \mathbf{w}_k^\top \mathbf{x} + b_k\$$
 
-where:
-- $ \mathbf{w}_k $ is the weight vector for class $k$ (k-th column of final weight matrix)
-- $ b_k $ is the bias for class $k$
-- $ \mathbf{x} $ is the input vector
+where:  
+-$\mathbf{w}_k$ is the weight vector for class $k$ (k-th column of final weight matrix)  
+-$b_k$ is the bias for class $k$  
+-$\mathbf{x}$ is the input vector
 
 The predicted class is:
-$$ \hat{y} = \arg\max_k s_k(\mathbf{x}) $$
+$$\hat{y} = \arg\max_k s_k(\mathbf{x})$$
 
-### The Role of the Weight Vectors $w_i$  
+### The Role of the Weight Vectors $w_i$ 
 
 The weight vectors $\mathbf{w}_k$ in the final layer play a crucial role in how the network partitions the input space. Each $\mathbf{w}_k$ can be interpreted as a prototype or "anchor" for class $k$ in the embedding space. The (biased) dot product between the input vector $\mathbf{x}$ and each $\mathbf{w}_k$ is calculated and the class yielding the highest score is selected as the prediction. Simplified speaking (e.g. if bias is zero) the weight vector most similar to the input yields the highest score.  
 Geometrically, the arrangement and orientation of the weight vectors determine which input is assigned to which class. This also defines the decision boundaries and thus the shape and position of the Voronoi regions assigned to each class. As training progresses, the weight vectors adjust to best separate the classes according to the training data.
 
 ### Decision Boundaries
 
-The decision boundary between class $ i $ and class $ j $ is defined by the set of points where their scores are equal:
+The decision boundary between class$i$and class$j$is defined by the set of points where their scores are equal:
 
 $$
 s_i(\mathbf{x}) = s_j(\mathbf{x}) \implies (\mathbf{w}_i - \mathbf{w}_j)^\top \mathbf{x} + (b_i - b_j) = 0
 $$
 
-This is a hyperplane (a line in 2D) separating the regions assigned to class $ i $ and class $ j $.
+This is a hyperplane (a line in 2D) separating the regions assigned to class $i$ and class $j$.
 
 For an input $\mathbf{x}$, if $s_i(\mathbf{x}) > s_j(\mathbf{x})$, then the network assigns a higher score to class $i$ than to class $j$. Note that the final class assignment depends on the comparison across all classes, not just a single pair. However, if $s_i(\mathbf{x}) \gg s_j(\mathbf{x})$, it is very likely (but not guaranteed) that $\mathbf{x}$ will be assigned to class $i$, unless another class $k$ has an even higher score.
 
