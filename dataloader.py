@@ -1,7 +1,4 @@
-import os
 import torch
-
-# from torchvision.io import decode_image
 from torch.utils.data import Dataset
 
 
@@ -20,6 +17,8 @@ class CustomImageDataset(Dataset):
                     self.words.append(counter)
                     self.labels.append(label)
                     counter += 1
+                    if counter == 100:
+                        break
 
         class2idx = {word: idx for idx, word in enumerate(set(self.labels))}
         self.n_classes = len(class2idx.keys())

@@ -29,7 +29,9 @@ if __name__ == "__main__":
             optimizer.step()
             batch_loss.append(loss)
 
-        if epoch % 25 == 0:
+        if epoch % 10 == 0:
             loss = sum(batch_loss) / len(batch_loss)
             plot_voronoi_from_logits(net, epoch, loss)
-            print(loss)
+            if epoch % 25 == 0:
+                plot_voronoi_from_logits(net, epoch, loss, with_decision_boundary=True)
+                print(loss)
