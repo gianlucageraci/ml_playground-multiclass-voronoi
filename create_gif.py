@@ -11,4 +11,4 @@ def extract_epoch(filename):
 
 files = sorted(glob.glob("figures/5_classes/voronoi_epoch_*.png"), key=extract_epoch)
 images = [iio.imread(f) for f in files]
-iio.imwrite("gifs/voronoi_evolution_5_classes.gif", images, fps=1)
+iio.imwrite("gifs/voronoi_evolution_5_classes.gif", images, fps=1, loop=0)
