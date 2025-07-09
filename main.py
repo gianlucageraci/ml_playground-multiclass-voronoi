@@ -18,7 +18,7 @@ if __name__ == "__main__":
     dataloader = DataLoader(dataset=dataset, batch_size=16)
     net = Net(input_size=dataset.n_embeddings, n_classes=dataset.n_classes)
     optimizer = Adam(net.parameters())
-    N_EPOCHS = 350
+    N_EPOCHS = 1000
 
     for epoch in range(N_EPOCHS):
         batch_loss = []
@@ -27,11 +27,12 @@ if __name__ == "__main__":
             loss = cross_entropy_loss(target, pred)
             loss.backward()
             optimizer.step()
+            optimizer.zero_grad()
             batch_loss.append(loss)
 
-        if epoch % 10 == 0:
+        if epoch % 50 == 0:
             loss = sum(batch_loss) / len(batch_loss)
             plot_voronoi_from_logits(net, epoch, loss)
-            if epoch % 25 == 0:
+            if epoch % 100 == 0:
                 plot_voronoi_from_logits(net, epoch, loss, with_decision_boundary=True)
                 print(loss)

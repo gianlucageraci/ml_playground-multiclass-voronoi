@@ -57,7 +57,7 @@ Calculating the exact Voronoi partitions based on the analytical decision bounda
 The following figure illustrates why calculating the Voronoi partitions directly from the decision boundaries is cumbersome. Only certain segments of the decision boundaries actually contribute to the final Voronoi regions, and not all boundaries are relevant.
 
 <p align = "center">
-<img src="imgs\voronoi_epoch_100.png" alt="Voronoi Evolution" width="750"/>
+<img src="imgs\voronoi_epoch_400.png" alt="Voronoi Evolution" width="750"/>
 </p>
 
 
